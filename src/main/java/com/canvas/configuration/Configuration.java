@@ -3,6 +3,7 @@ package com.canvas.configuration;
 import com.canvas.handler.Handler;
 import com.canvas.handler.Mapper;
 import com.canvas.shape.*;
+import com.canvas.validation.*;
 import java.util.HashMap;
 import java.util.Map;
 import lombok.AccessLevel;
@@ -18,7 +19,7 @@ public final class Configuration {
 
   private Configuration() {
     this.mapper = new Mapper();
-    this.handler = new Handler(createShapeMap());
+    this.handler = new Handler(createShapeMap(), createValidatorMap());
   }
 
   public static Configuration getInstance() {
@@ -36,5 +37,15 @@ public final class Configuration {
     shapesMap.put(ShapeType.RECTANGLE, new Rectangle());
     shapesMap.put(ShapeType.BUCKET, new Bucket());
     return shapesMap;
+  }
+
+  private Map<ShapeType, BaseValidator> createValidatorMap() {
+    Map<ShapeType, BaseValidator> validatorMap = new HashMap<>();
+    validatorMap.put(ShapeType.CANVAS, new CanvasValidator());
+    validatorMap.put(ShapeType.POINT, new PointValidator());
+    validatorMap.put(ShapeType.LINE, new LineValidator());
+    validatorMap.put(ShapeType.RECTANGLE, new RectangleValidator());
+    validatorMap.put(ShapeType.BUCKET, new BucketValidator());
+    return validatorMap;
   }
 }

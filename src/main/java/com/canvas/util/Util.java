@@ -9,11 +9,7 @@ public final class Util {
     return str != null ? str.trim() : "";
   }
 
-  public static boolean isEmptyStr(String str) {
-    return trimStr(str).isEmpty();
-  }
-
-  public static boolean isPositiveList(List<String> list) {
+  public static boolean isPositiveList(List<String> list) throws NumberFormatException {
     if (list == null || list.isEmpty()) {
       return false;
     }
