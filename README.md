@@ -28,12 +28,10 @@ Features Explained
 2. Draw primitives  
    a. Point  
    • Command: `P <x> <y> <ch>` – puts **one** character `ch` at column `x`, row `y`.  
-   b. Line (horizontal or vertical)  
-   • Command: `L <x1> <y1> <x2> <y2> <ch>` – draws a straight line with character `ch`.  
-   • Only pure horizontal (`y1 == y2`) or vertical (`x1 == x2`) lines are required.  
+   b. Line  
+   • Command: `L <x1> <y1> <x2> <y2> <ch>` – draws a line with character `ch`.  
    c. Rectangle / Square  
-   • Command: `R <x1> <y1> <x2> <y2> <ch>` – draws the perimeter of a rectangle whose upper-left corner is `(x1, y1)`
-   and lower-right corner is `(x2, y2)` using `ch`.  
+   • Command: `R <x1> <y1> <x2> <y2> <ch>` – draws the perimeter of a rectangle using two diagonal corner points.  
    • A square is just a rectangle whose sides are equal.
 
 3. Bucket-fill coloring  
